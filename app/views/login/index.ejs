@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Paulo Henrique Sales Sampaio">
+
+        <title>Edição de Usuário</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="py-5 text-center">
+                <h2>Login</h2>
+                <p class="lead">Informe seus dados de aceso</p>
+            </div>
+
+            <% if(mensagem) {%>
+                <div class="row mb-4 d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="alert alert-danger" role="alert">
+                            <%= mensagem %>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+
+            <form action="/autenticar" method="POST">
+
+                <div class="row mb-3 d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <label for="nomeUsuario">Nome de usuário</label>
+                        <input type="text" class="form-control" id="nomeUsuario" name="nomeUsuario" value="<%= usuario.nomeUsuario%>"/>
+                        <div class="invalid-feedback">
+                            O nome de usuário é obrigatório
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3 d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <label for="senha">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" value="<%= usuario.senha %>"/>
+                        <div class="invalid-feedback">
+                            A senha é obrigatória
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <input type="submit" class="btn btn-primary" value="ENTRAR">
+                    </div>
+                </div>
+            </form>
+
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+                <p class="mb-1">&copy; <%= new Date().getFullYear() %> Paulo Sampaio</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Support</a></li>
+                </ul>
+            </footer>
+        </div>
+    
+        <!-- Bootstrap core JavaScript -->
+        <script src="/popper/dist/umd/popper.min.js"></script>
+        <script src="/jquery/dist/jquery.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script> 
+            <% if(validacao) { %>
+
+                $(".form-control").removeClass('is-invalid').addClass('is-valid'); 
+                
+                <% for(let i = 0; i < validacao.length; i++) { %>
+                    $(<%= validacao[i].param %>).removeClass('is-valid').addClass("is-invalid");
+                <% } %>
+            <% } %>
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Paulo Henrique Sales Sampaio">
+
+        <title>Cadastro de Usuário</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Google Material icons -->
+        <link href="/icons/iconfont/material-icons.css" rel="stylesheet">
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="\">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                <a class="nav-item nav-link" href="\usuario">Usuários<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="\novo">Cadastro</a>
+                <a class="nav-item nav-link" href="\sair">Sair</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="py-5 text-center">
+                <h2>Usuários Cadastrados</h2>
+                <p class="lead">Lista de usuários cadastrados no sistema</p>
+            </div>
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" hidden="hidden">ID</th>
+                    <th scope="col">Primeiro Nome</th>
+                    <th scope="col">Ultimo Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Detalhes</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Excluir</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% if(usuarios) {%>
+                        <% for(let i = 0; i < usuarios.length; i++ ) { %>
+                            <tr>
+                                <th hidden="hidden">usuarios[i]._id </th>
+                                <td><%= usuarios[i].primeiroNome %></td>
+                                <td><%= usuarios[i].ultimoNome %></td>
+                                <td><%= usuarios[i].email %></td>
+                                <td><a href="/detalhe?id=<%= usuarios[i]._id %>" class="btn btn-outline-info">
+                                    <i class="material-icons">info</i>
+                                </a></td>
+                                <td><a href="/alterar?id=<%= usuarios[i]._id %>" class="btn btn-outline-primary">
+                                    <i class="material-icons">edit</i>
+                                </a></td>
+                                <td><a href="/excluir?id=<%= usuarios[i]._id %>" class="btn btn-outline-danger">
+                                    <i class="material-icons">delete</i>
+                                </a></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </tbody>
+              </table>
+
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+                <p class="mb-1">&copy; <%= new Date().getFullYear() %> Paulo Sampaio</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Support</a></li>
+                </ul>
+            </footer>
+        </div>
+    
+        <!-- Bootstrap core JavaScript -->
+        <script src="/popper/dist/umd/popper.min.js"></script>
+        <script src="/jquery/dist/jquery.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
