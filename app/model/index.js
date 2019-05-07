@@ -2,13 +2,14 @@ const fs = require('fs')
 const path = require('path')
 const Sequelize = require('sequelize')
 const basename = path.basename(__filename)
-const config = require('../../config/database')
 const db = {}
 
-const sequelize  = aplicacao.config.DbConnection.connection;
+const sequelize  = new Sequelize('adv', 'root', 'root', {
+  host: 'localhost',
+  dialect:'mysql'
+});
 
-
-
+console.log
 fs.readdirSync(__dirname)
   .filter(file => {
     return (

@@ -25,22 +25,31 @@
   },
   "homepage": "https://github.com/paulosales47/CadastroUsuario#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.2.1",
     "consign": "^0.1.6",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "express-validator": "^5.3.1",
     "jquery": "^3.3.1",
     "material-design-icons": "^3.0.1",
+    "morgan": "^1.7.0",
     "mysql2": "^1.6.5",
-    "popper.js": "^1.14.7",
-    "sequelize": "^5.8.5",
-    "sha3": "^2.0.0",
-    "pg": "^7.6.1",
     "nunjucks": "^3.1.4",
     "nunjucks-date-filter-local": "^0.1.2",
-    "session-file-store": "^1.2.0"
+    "pg": "^7.6.1",
+    "popper.js": "^1.14.7",
+    "pug": "^2.0.0-rc.4",
+    "sequelize": "^5.8.5",
+    "serve-favicon": "~2.3.0",
+    "session-file-store": "^1.2.0",
+    "sha3": "^2.0.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^3.2.0"
   }
 }

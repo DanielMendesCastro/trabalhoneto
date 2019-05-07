@@ -3,8 +3,8 @@ module.exports.Index = function(resposta){
 }
 
 module.exports.Autenticar = function(aplicacao, requisicao, resposta){
-    let errosValidacao = aplicacao.get('validationResult')(requisicao);
-    let usuario = requisicao.body;
+    var errosValidacao = aplicacao.get('validationResult')(requisicao);
+    var usuario = requisicao.body;
 
     if(!errosValidacao.isEmpty()){
         console.log(errosValidacao.array());
@@ -12,8 +12,8 @@ module.exports.Autenticar = function(aplicacao, requisicao, resposta){
         return;
     }
 
-    let conexao = aplicacao.config.DbConnection;
-    let loginDAO = new aplicacao.app.repositories.LoginDAO(conexao);
+    var conexao = aplicacao.config.DbConnection;
+    var loginDAO = new aplicacao.app.repositories.LoginDAO(conexao);
 
     loginDAO.Autenticar(usuario, function(usuarioPesquisa){
 

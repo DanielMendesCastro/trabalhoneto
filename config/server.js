@@ -6,12 +6,16 @@ const path = require('path')
 let bodyParser = require('body-parser');
 let {check, validationResult} = require('express-validator/check');
 let expressSession = require('express-session');
+const { User } = require('../models');
 let app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 app.set('check', check);
 app.set('validationResult', validationResult);
+
+app.set('view engine', 'ejs');
+app.set('views', './app/views');
 
 app.use("/jquery",express.static('./node_modules/jquery'));
 app.use("/popper", express.static('./node_modules/popper.js'));
@@ -28,7 +32,6 @@ app.set('view engine', 'njk')
 consign()
     .include('./config/DbConnection.js')
     .then('./app/routes')
-    .then('./app/repositories')
     .then('./app/controllers')
     .into(app);
 
