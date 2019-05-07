@@ -1,14 +1,10 @@
 {
   "name": "cadastrousuario",
   "version": "1.0.0",
-  "description": "Sistema web de cadastro de usuários utilizando Node e MongoDB",
+  "description": "Sistema web de cadastro de usuários utilizando Node e mySql",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paulosales47/CadastroUsuario.git"
   },
   "keywords": [
     "node",
@@ -18,12 +14,7 @@
     "bootstrap",
     "ejs"
   ],
-  "author": "Paulo Henrique Sales Sampaio",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/paulosales47/CadastroUsuario/issues"
-  },
-  "homepage": "https://github.com/paulosales47/CadastroUsuario#readme",
+  "author": "Daniel Mendes de Castro",
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",

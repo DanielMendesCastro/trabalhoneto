@@ -1,5 +1,6 @@
+
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define(
+    const Usuario = sequelize.define(
       'usuario',
       {
         primeiroNome: DataTypes.STRING,
@@ -11,7 +12,10 @@ module.exports = (sequelize, DataTypes) => {
         numero: DataTypes.INTEGER,
         telefone: DataTypes.STRING,
         dtNascimento: DataTypes.DATE
-      });
+      },{      
+        freezeTableName: true,
+        timestamps: false 
+    });
 
-      return User;
+      return Usuario;
     }

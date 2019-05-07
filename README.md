@@ -1,9 +1,7 @@
 # CadastroUsuario
 
-Sistema utilizando NodeJs e MongoDB para estudos
-
+Sistema utilizando NodeJs e MySql trabalho Neto 
 ```
-> git clone https://github.com/paulosales47/CadastroUsuario
 > npm install
 > node app
 ```

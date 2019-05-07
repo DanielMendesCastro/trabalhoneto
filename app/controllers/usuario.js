@@ -1,8 +1,7 @@
-var models  = require('../model');
+    const models  =  require('../../models');
+
 module.exports.index = function(resposta){
-    models.User.findAll({
-        include: [ models.Task ]
-      }).then(function(users) {
+    models.usuario.findAll().then(function(usuarios) {
         resposta.render('usuario', {usuarios: usuarios});
       });        
 }
@@ -11,37 +10,29 @@ module.exports.novo = function(resposta){
     resposta.render('usuario/novo');
 }
 
-module.exports.alterar = function(aplicacao, requisicao, resposta){
-    
-    var  id_usuario = requisicao.query.id;
-    var  conexao = aplicacao.config.DbConnection;
-    var  usuarioDAO = new aplicacao.app.repositories.UsuarioDAO(conexao);
-
-    usuarioDAO.BuscarUsuario(id_usuario, function(usuario){
-        resposta.render('usuario/alterar', {usuario: usuario[0] });
-    });
+module.exports.alterar = function(requisicao, resposta){
+  var  id_usuario = requisicao.query.id;
+  models.usuario.findByPk(id_usuario).then(
+      usuario => {
+        resposta.render('usuario/alterar', {usuario:usuario });
+      }
+  ).catch(err => console.log(err)); 
 }
 
 module.exports.detalhe = function( requisicao, resposta){
-   var   usuario =  models.findOne(id_usuario)
-    .then(client => {
-        client.db()
-        .collection('usuarios')
-        .find({_id: new MongoDB.ObjectID(id_usuario)})
-        .toArray(function(erro, usuario){
-            client.close();
-            callback(usuario);
-        });
-    }).catch(err => console.log(err));
-
-    resposta.render('usuario/detalhe', {usuario: usuario[0]});
+var  id_usuario = requisicao.query.id;
+   var   usuario =  models.usuario.findByPk(id_usuario)
+   models.usuario.findByPk(id_usuario).then(
+    usuario => {
+      resposta.render('usuario/detalhe', {usuario:usuario });
+    }
+).catch(err => console.log(err)); 
 }
 
 module.exports.excluir = function(requisicao, resposta){
-
-    models.destroy({
+    models.usuario.destroy({
         where: {
-          id: req.params.user_id
+          id: requisicao.query.id
         }
       }).then(function() {
         resposta.redirect('/usuario');
@@ -50,15 +41,16 @@ module.exports.excluir = function(requisicao, resposta){
 
 module.exports.cadastrarUsuario = function(requisicao, resposta){
     var  formulario = requisicao.body;
-    var  usuarioDAO =  models.create({})
-    usuarioDAO.CadastrarUsuario(formulario);
+    console.log(formulario);
+    models.usuario.create(formulario).then(function() {
     resposta.redirect('/usuario');
+}).catch(err => console.log(err));
 }
 
 module.exports.atualizarUsuario = function(requisicao, resposta){
 
     var  formulario = requisicao.body;
-    models.update(formulario,{
+    models.usuario.update(formulario,{
         where: {id : formulario.id}
     })
     resposta.redirect('/usuario');

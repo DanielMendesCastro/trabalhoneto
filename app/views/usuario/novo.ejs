@@ -74,7 +74,7 @@
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@teste.com">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@teste.com" required>
                         <div class="invalid-feedback">
                             Informe um email válido
                         </div>
@@ -106,13 +106,6 @@
                             Informe um telefone válido
                         </div> 
                     </div>
-                    <div class="col-md-6">
-                        <label for="dtNascimento">Data de nascimento</label>
-                        <input type="date" class="form-control" id="dtNascimento" name="dtNascimento" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Informe um telefone válido
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row">
@@ -121,15 +114,6 @@
                     </div>
                 </div>
             </form>
-
-            <footer class="my-5 pt-5 text-muted text-center text-small">
-                <p class="mb-1">&copy; <%= new Date().getFullYear() %> Paulo Sampaio</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#">Privacy</a></li>
-                    <li class="list-inline-item"><a href="#">Terms</a></li>
-                    <li class="list-inline-item"><a href="#">Support</a></li>
-                </ul>
-            </footer>
         </div>
     
         <!-- Bootstrap core JavaScript -->

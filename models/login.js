@@ -1,10 +1,15 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define(
+    const login = sequelize.define(
       'login',
       {
         nomeUsuario: DataTypes.STRING,
         senha: DataTypes.STRING,
-      })
+      },{      
+        freezeTableName: true,
+    })
+
+      return login;
     }
 
 

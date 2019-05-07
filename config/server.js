@@ -25,14 +25,13 @@ app.use("/icons", express.static('./node_modules/material-design-icons'))
 app.use('/public', express.static('./app/public'));
 app.use(expressSession({ secret: secret, cookie: { maxAge: 1200000}, resave: false, saveUninitialized: false}));
 app.use(bodyParser.urlencoded({extended: true}));
-
-app.use(express.static(path.resolve(__dirname, 'public')))
-app.set('view engine', 'njk')
+app.use(express.static(path.resolve(__dirname, 'public')));
 
 consign()
     .include('./config/DbConnection.js')
     .then('./app/routes')
     .then('./app/controllers')
+    .then('./app/models')
     .into(app);
 
 module.exports = app;

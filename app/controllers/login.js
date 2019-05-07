@@ -1,3 +1,5 @@
+const models  =  require('../../models');
+
 module.exports.Index = function(resposta){
     resposta.render('login/index', {validacao: false, usuario: {}, mensagem: false});
 }
@@ -6,26 +8,22 @@ module.exports.Autenticar = function(aplicacao, requisicao, resposta){
     var errosValidacao = aplicacao.get('validationResult')(requisicao);
     var usuario = requisicao.body;
 
-    if(!errosValidacao.isEmpty()){
-        console.log(errosValidacao.array());
-        resposta.render('login/index', {validacao: errosValidacao.array(), usuario: usuario, mensagem: false});
-        return;
-    }
-
-    var conexao = aplicacao.config.DbConnection;
-    var loginDAO = new aplicacao.app.repositories.LoginDAO(conexao);
-
-    loginDAO.Autenticar(usuario, function(usuarioPesquisa){
-
-        if(usuarioPesquisa.length > 0){
+    models.usuario.findAll({
+        where: {nomeUsuario : usuario.nomeUsuario,
+                senha: usuario.senha} 
+    }).then(function(usuarios) {
+        console.log(usuarios[0].dataValues);
+        if(usuarios[0].dataValues.id == '' || usuarios[0].dataValues.id == null){
+            resposta.render('login/index', {validacao: errosValidacao.array(), usuario: usuario, mensagem: 'Verifique o usuário e senha informados'});
+            return;
+        }
+        else{   
             requisicao.session.autenticado = true;
-            requisicao.session.primeiroNome = usuarioPesquisa[0].primeiroNome;
-            requisicao.session.nomeUsuario = usuarioPesquisa[0].nomeUsuario
+            requisicao.session.primeiroNome = usuarios[0].dataValues.primeiroNome;
+            requisicao.session.nomeUsuario = usuarios[0].dataValues.nomeUsuario
             resposta.redirect('usuario/');
         }
-        else
-            resposta.render('login/index', {validacao: false, usuario: usuario, mensagem: 'Verifique o usuário e senha informados'});
-    });
+      });        
 }
 
 module.exports.Sair = function(requisicao, resposta){

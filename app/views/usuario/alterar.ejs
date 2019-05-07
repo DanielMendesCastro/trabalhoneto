@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-        <meta name="author" content="Paulo Henrique Sales Sampaio">
 
         <title>Edição de Usuário</title>
 
@@ -36,7 +35,7 @@
 
             <form action="/atualizarUsuario" method="POST">
 
-                <input id="id" name="id" hidden="hidden" value="<%=usuario._id%>"/>
+                <input id="id" name="id" hidden="hidden" value="<%=usuario.id%>"/>
                 
                 <div class="row mb-3">
                     <div class="col-md-6">
@@ -84,11 +83,32 @@
                     <div class="col-md-8">
                         <label for="endereco">Endereço</label>
                         <input type="text" class="form-control" id="endereco" name="endereco" placeholder="" value="<%= usuario.endereco %>" required>
-                        <div class="invalid-feedback">
-                            Informe um endereço válido
+                        <div class="inva <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+
+        <title>Edição de Usuário</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">d-feedback">
+                            Informe um e <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+
+        <title>Edição de Usuário</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">ereço válido
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+
+        <title>Edição de Usuário</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
                         <label for="numero">Número</label>
                         <input type="text" class="form-control" id="numero" name="numero" placeholder="" value="<%= usuario.numero %>" required>
                         <div class="invalid-feedback">
@@ -105,13 +125,6 @@
                             Informe um telefone válido
                         </div> 
                     </div>
-                    <div class="col-md-6">
-                        <label for="dtNascimento">Data de nascimento</label>
-                        <input type="date" class="form-control" id="dtNascimento" name="dtNascimento" placeholder="" value="<%= usuario.dtNascimento %>" required>
-                        <div class="invalid-feedback">
-                            Informe um telefone válido
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row">
@@ -120,15 +133,6 @@
                     </div>
                 </div>
             </form>
-
-            <footer class="my-5 pt-5 text-muted text-center text-small">
-                <p class="mb-1">&copy; <%= new Date().getFullYear() %> Paulo Sampaio</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#">Privacy</a></li>
-                    <li class="list-inline-item"><a href="#">Terms</a></li>
-                    <li class="list-inline-item"><a href="#">Support</a></li>
-                </ul>
-            </footer>
         </div>
     
         <!-- Bootstrap core JavaScript -->
