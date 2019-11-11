@@ -1,7 +1,6 @@
 let secret = ',3[zcuY%ZlZmbO;MN{U5GIUN(]AJ}hQ*CJhe45K^IjhkzWx#N)jT}5i@zi+s*Db)';
 let express = require('express');
 let consign = require('consign');
-const nunjucks = require('nunjucks')
 const path = require('path')
 let bodyParser = require('body-parser');
 let {check, validationResult} = require('express-validator/check');
