@@ -17,6 +17,7 @@
   ],
   "author": "Daniel Mendes de Castro",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.2.1",
     "consign": "^0.1.6",
